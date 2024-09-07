@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Subha Aarambha Papers</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase().trim();
+            const products = document.querySelectorAll('.product-item');
+
+            products.forEach(product => {
+                const number = product.getAttribute('data-number').toLowerCase();
+                const name = product.getAttribute('data-name').toLowerCase();
+                
+                if (number.includes(input) || name.includes(input)) {
+                    product.style.display = "";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+
+        // Optional: Allow search on Enter key press
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    searchProducts();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <a href="index.html">
+            <img src="images/logo1.png" alt="Subha Aarambha Papers Logo" class="logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="products">
+            <h1>Our Products</h1>
+            
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by name or number">
+                <button onclick="searchProducts()">OK</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid" class="grid-container">
+                <div class="product-item" data-number="1" data-name="Eco Paper Cup">
+                    <img src="images/product1.png" alt="Eco Paper Cup">
+                    <h3>1. Eco Paper Cup</h3>
+                    <p>Price: $1.50</p>
+                </div>
+                <div class="product-item" data-number="2" data-name="Biodegradable Plate">
+                    <img src="images/product2.png" alt="Biodegradable Plate">
+                    <h3>2. Biodegradable Plate</h3>
+                    <p>Price: $2.00</p>
+                </div>
+                <div class="product-item" data-number="3" data-name="Compostable Cutlery Set">
+                    <img src="images/product3.png" alt="Compostable Cutlery Set">
+                    <h3>3. Compostable Cutlery Set</h3>
+                    <p>Price: $3.25</p>
+                </div>
+                <div class="product-item" data-number="4" data-name="Eco-friendly Napkins">
+                    <img src="images/product4.png" alt="Eco-friendly Napkins">
+                    <h3>4. Eco-friendly Napkins</h3>
+                    <p>Price: $0.75</p>
+                </div>
+                <div class="product-item" data-number="5" data-name="Sustainable Packaging Box">
+                    <img src="images/product5.png" alt="Sustainable Packaging Box">
+                    <h3>5. Sustainable Packaging Box</h3>
+                    <p>Price: $4.50</p>
+                </div>
+                <div class="product-item" data-number="6" data-name="Recycled Paper Bags">
+                    <img src="images/product6.png" alt="Recycled Paper Bags">
+                    <h3>6. Recycled Paper Bags</h3>
+                    <p>Price: $1.20</p>
+                </div>
+                <div class="product-item" data-number="7" data-name="Hay-based Tissue Paper">
+                    <img src="images/product7.png" alt="Hay-based Tissue Paper">
+                    <h3>7. Hay-based Tissue Paper</h3>
+                    <p>Price: $0.50</p>
+                </div>
+                <div class="product-item" data-number="8" data-name="Eco-friendly Stationery Set">
+                    <img src="images/product8.png" alt="Eco-friendly Stationery Set">
+                    <h3>8. Eco-friendly Stationery Set</h3>
+                    <p>Price: $5.00</p>
+                </div>
+                <div class="product-item" data-number="9" data-name="Paper Straws">
+                    <img src="images/product9.png" alt="Paper Straws">
+                    <h3>9. Paper Straws</h3>
+                    <p>Price: $4.50</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Subha Aarambha Papers. All rights reserved.</p>
+    </footer>
+</body>
+</html>
